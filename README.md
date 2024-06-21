@@ -1,4 +1,4 @@
-# Net 7 Application
+# Net 7 BackEnd Application
 
 Backend application made with .Net7 (C#) 
 with JWT bearer authentication and CRUD functionalities. EntityFramework as ORM(code first). Use of Mapperly for mapping.
