@@ -20,7 +20,7 @@ namespace Services.AuthService
         {
             this.userRepository = userRepository;
 
-            secretKey = config.GetSection("settings").GetSection("secretKey").ToString();
+            secretKey = config.GetSection("settings").GetSection("secretKey")?.Value;
 
         }
 

@@ -24,7 +24,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var secretKey = builder.Configuration.GetSection("settings").GetSection("secretKey").ToString();
+var secretKey = builder.Configuration.GetSection("settings").GetSection("secretKey")?.Value;
 var keyBytes = Encoding.UTF8.GetBytes(secretKey);
 
 builder.Services.AddAuthentication(config => {
