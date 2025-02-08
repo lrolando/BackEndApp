@@ -87,8 +87,7 @@ if (app.Environment.IsDevelopment())
     using (var scope = app.Services.CreateScope())
     {
         var db = scope.ServiceProvider.GetRequiredService<ApiDBContext>();
-        db.Database.EnsureCreated();
-        //db.Database.Migrate();
+        //db.Database.EnsureCreated();
     }
 }
 
