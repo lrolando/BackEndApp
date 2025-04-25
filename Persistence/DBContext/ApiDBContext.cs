@@ -1,12 +1,5 @@
 ﻿using Entities;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Persistence.DBContext
 {
@@ -17,10 +10,12 @@ namespace Persistence.DBContext
 
         public ApiDBContext(DbContextOptions<ApiDBContext> options) : base(options)
         {
+            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+
             // Configuración de la cadena de conexión a la base de datos
             //var configuration = new ConfigurationBuilder()
             //        .Sources("appsettings.json")
@@ -28,7 +23,7 @@ namespace Persistence.DBContext
 
             //var connectionString = configuration.GetConnectionString("conString");
 
-            //optionsBuilder.UseSqlServer("tu_cadena_de_conexion");
+            //optionsBuilder.UseSqlServer("connectionString");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
